@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
                     alert("Usuário/Senha incorreto");
 
+                    
                     if(cont > 3){
                        // alert("APLICAÇÃO BLOQUEADA!");
                         block();
