@@ -1,6 +1,8 @@
 package com.example.paloma.teladelogin;
 
 import android.app.AlertDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,12 +20,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btLogin,btCancel;
-        EditText user,pass;
+        //Button btLogin,btCancel;
+        //EditText user,pass;
+        SharedPreferences sharedpreferences;
+
+        final EditText user = (EditText) findViewById(R.id.tLogin);
+        final EditText password = (EditText) findViewById(R.id.tPassword);
+
+        Button btLogin =(Button) findViewById(R.id.button);
 
 
-
-        btLogin =(Button) findViewById(R.id.button);
 
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,8 +39,14 @@ public class MainActivity extends AppCompatActivity {
                 String Login = tLogin.getText().toString();
                 String Senha = tPass.getText().toString();
 
-                    cont++;
-
+                cont++;
+                SharedPreferences prefs = getSharedPreferences("usuario", Context.MODE_PRIVATE);
+                SharedPreferences.Editor ed = prefs.edit ();
+                ed.putString("user" , tLogin.getText().toString());
+                ed.putString("password" , tPass.getText().toString());
+                ed.putInt("contador" ,  cont );
+                ed.apply();
+                alert("Login Realizado com sucesso");
 
 
                 if(Login.equals("admin")&& Senha.equals("admin")){
@@ -45,15 +57,19 @@ public class MainActivity extends AppCompatActivity {
 
                     
                     if(cont > 3){
-                       // alert("APLICAÇÃO BLOQUEADA!");
+
                         block();
                     }
                 }
+
+
 
             }
         });
         // btCancel  = (Button) findViewById(R.id.button2);
     }
+
+
     private void  alert(String s){
         Toast.makeText(this,s,Toast.LENGTH_LONG).show();
     }
