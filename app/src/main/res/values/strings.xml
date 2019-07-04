@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Tela de Login</string>
+    <string name="usuario">Usuário</string>
+    <string name="senha">Senha</string>
+    <string name="btLogin">ENTRAR</string>
+    <string name="btcancel">CANCELAR</string>
 </resources>
