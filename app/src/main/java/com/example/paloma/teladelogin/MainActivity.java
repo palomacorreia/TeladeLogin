@@ -15,6 +15,7 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
     private int cont=0;
+    private int bloqueado = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,25 +43,37 @@ public class MainActivity extends AppCompatActivity {
                 cont++;
                 SharedPreferences prefs = getSharedPreferences("usuario", Context.MODE_PRIVATE);
                 SharedPreferences.Editor ed = prefs.edit ();
-                ed.putString("user" , tLogin.getText().toString());
-                ed.putString("password" , tPass.getText().toString());
-                ed.putInt("contador" ,  cont );
-                ed.apply();
-                alert("Login Realizado com sucesso");
+                //ed.putString("user" , tLogin.getText().toString());
+                //ed.putString("password" , tPass.getText().toString());
+                //ed.putInt("contador" ,  cont );
+                //ed.apply();
 
-
-                if(Login.equals("admin")&& Senha.equals("admin")){
-                    alert("Login Realizado com sucesso");
-                }else {
-
-                    alert("Usuário/Senha incorreto");
-
-                    
-                    if(cont > 3){
-
-                        block();
-                    }
+                //cont = (prefs.getInt("contador",0));
+                //System.out.println("cont"+cont);
+                if(cont > 3){
+                    ed.putInt("bloqueado" , 1 );
+                    ed.apply();
+                    block();
                 }
+
+                bloqueado = (prefs.getInt("bloqueado",0));
+                if(bloqueado == 1)
+                {
+                    block();
+                }
+
+//                if(Login.equals("admin")&& Senha.equals("admin")){
+//                    alert("Login Realizado com sucesso");
+//                }else {
+//
+//                    alert("Usuário/Senha incorreto22");
+//
+//
+//                    if(cont > 3){
+//                        alert("palhaçada2");
+//                        block();
+//                    }
+//                }
 
 
 
@@ -77,8 +90,7 @@ public class MainActivity extends AppCompatActivity {
     private void block() {
 
             new AlertDialog.Builder(this).setTitle("Aplicação Bloqueada").
-                    setMessage("Esta Aplicação foi Permanentemente Bloqueada por Excesso de Tetantivas de Login").show();
+                    setMessage("Esta Aplicação foi Permanentemente Bloqueada por Excesso de Tentativas de Login").show();
 
-
-        }
+    }
 }
