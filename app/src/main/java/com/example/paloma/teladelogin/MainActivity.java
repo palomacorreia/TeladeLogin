@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //cont = (prefs.getInt("contador",0));
                 //System.out.println("cont"+cont);
+                
                 if(cont > 3){
                     ed.putInt("bloqueado" , 1 );
                     ed.apply();
