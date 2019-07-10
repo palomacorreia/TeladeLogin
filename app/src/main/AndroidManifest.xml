@@ -16,6 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".TelaPrincipal"
+            android:label="@string/tela1" />
+
+        <activity android:name=".TelaConfig"
+            android:label="@string/tela2" />
+
     </application>
 
 </manifest>

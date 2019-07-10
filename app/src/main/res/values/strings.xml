@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Tela de Login</string>
+    <string name="tela1">Tela Principal</string>
+    <string name="tela2">Tela de Configuração</string>
     <string name="usuario">Usuário</string>
     <string name="senha">Senha</string>
     <string name="btLogin">ENTRAR</string>
