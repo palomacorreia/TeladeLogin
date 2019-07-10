@@ -1,6 +1,7 @@
 package com.example.paloma.teladelogin;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -39,6 +40,12 @@ public class MainActivity extends AppCompatActivity {
 
                 if(Login.equals("admin")&& Senha.equals("admin")){
                     alert("Login Realizado com sucesso");
+
+
+                            Intent it = new Intent(MainActivity.this, TelaPrincipal.class);
+                            startActivity(it);
+
+
                 }else {
 
                     alert("Usuário/Senha incorreto");
