@@ -27,7 +27,10 @@ public class TelaPrincipal extends AppCompatActivity  implements  View.OnClickLi
                 startActivity(it);
                 break;
             case R.id.buttoncancel  :
-                finish();  // sai da aplicação
+                Intent  ip = new Intent(getApplicationContext(), MainActivity.class);
+                ip.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                ip.putExtra("SAIR", true);
+                startActivity(ip);  // sai da aplicação
                 break;
         }
 

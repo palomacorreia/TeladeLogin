@@ -127,6 +127,14 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 
 
     }
+    @Override
+    protected void onResume() {
+        if(getIntent().getBooleanExtra("SAIR", false)){
+            finish();
+        }
+        super.onResume();
+    }
+
 
     //----------------------------
     private void alert(String s) {
