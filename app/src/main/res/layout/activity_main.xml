@@ -42,14 +42,14 @@
             />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/entrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/btLogin" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/sair"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btcancel" />

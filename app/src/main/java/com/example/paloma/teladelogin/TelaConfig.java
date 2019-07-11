@@ -7,7 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 public class TelaConfig extends AppCompatActivity {
-    Button btconfig = (Button) findViewById(R.id.buttonconfig);
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,13 +16,7 @@ public class TelaConfig extends AppCompatActivity {
         setContentView(R.layout.activity_tela_config);
 
 
-        btconfig.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent it = new Intent(TelaConfig.this, TelaPrincipal.class);
-                startActivity(it);
-            }
-        });
+
 
     }
 }
