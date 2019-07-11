@@ -62,14 +62,18 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
                 SharedPreferences prefs2 = getSharedPreferences("bloquear", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edBlock = prefs2.edit ();
 
-                //armazena os valores senha e login para serem inseridos no arquivo xml
-                edUser.putString("senha" , "admin" );
-                edUser.putString("login" , "admin" );
-                //armazenamos a senha e o login com admin no banco
-                edUser.apply();
+                //recuperamos a senha e o login
+                senha_armazenada = (prefs1.getString ("senha", ""));
+                login_armazanado = (prefs1.getString ("login", ""));
 
-
-
+                if(senha_armazenada.equals("") && login_armazanado.equals(""))
+                {
+                    //armazena os valores senha e login para serem inseridos no arquivo xml
+                    edUser.putString("senha", "admin");
+                    edUser.putString("login", "admin");
+                    //armazenamos a senha e o login com admin no banco
+                    edUser.apply();
+                }
 
                 //se o usuario tiver 3 tentaivas erradas
                 if(cont > 3){
@@ -101,23 +105,23 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 
                 //se ele acertar a senha
                 if( (Login.equals(login_armazanado) ) && (Senha.equals(senha_armazenada)))
-            {
-                //desativamos a variavel de bloqueio
-                edBlock.putInt("bloqueado" , 0 );
+                {
+                    //desativamos a variavel de bloqueio
+                    edBlock.putInt("bloqueado" , 0 );
 
 
-                //armazenamos ela no arquivo
-                edBlock.apply();
+                    //armazenamos ela no arquivo
+                    edBlock.apply();
 
-                //chama a nova tela depois de acertar a senha
-                Intent it = new Intent(MainActivity.this, TelaPrincipal.class);
-                startActivity(it);
-            }else{
-                    //se a pessoa errar
+                    //chama a nova tela depois de acertar a senha
+                    Intent it = new Intent(MainActivity.this, TelaPrincipal.class);
+                    startActivity(it);
+                }else {
+                    tPass.setText("");
+                    tLogin.setText("");
+                    Toast.makeText(getApplicationContext(),R.string.senhaAlert, Toast.LENGTH_SHORT).show();
 
-                        alert("Usuário/Senha incorreto");
-
-                }
+                    }
 
                break;
             case R.id.sair  :
@@ -143,8 +147,8 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 
     private void block() {
 
-        new AlertDialog.Builder(this).setTitle("Aplicação Bloqueada").
-                setMessage("Esta Aplicação foi Permanentemente Bloqueada por Excesso de Tentativas de Login").show();
+        new AlertDialog.Builder(this).setTitle(R.string.blockAlert).
+            setMessage(R.string.block).show();
 
 
     }

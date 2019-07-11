@@ -58,10 +58,11 @@ public class TelaConfig extends AppCompatActivity implements  View.OnClickListen
 
                 }else
                 {
-                    alert("Senhas diferentes, por favor tente novamente.");
+                    //alert("" + R.string.senhadif);
+                    Toast.makeText(getApplicationContext(),R.string.senhadif, Toast.LENGTH_SHORT).show();
                     //limpa os campos da senha errada
                     tPass.setText("");
-                    tPass.setText("");
+                    tConfirmPass.setText("");
 
                 }
 

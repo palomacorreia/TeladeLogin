@@ -4,6 +4,14 @@
     <string name="tela2">Tela de Configuração</string>
     <string name="usuario">Usuário</string>
     <string name="senha">Senha</string>
+    <string name="senhadif">Senhas diferentes!Digite novamente!</string>
     <string name="btLogin">ENTRAR</string>
     <string name="btcancel">CANCELAR</string>
+    <string name="btconfig">CONFIGURAR</string>
+    <string name="btsair">SAIR</string>
+
+
+    <string name="block">Esta Aplicação foi Permanentemente Bloqueada por Excesso de Tentativas de Login</string>
+    <string name="blockAlert">Aplicação Bloqueada</string>
+    <string name="senhaAlert">Usuário/Senha incorreto</string>
 </resources>

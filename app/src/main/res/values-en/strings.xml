@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Login</string>
+    <string name="block">This Application Has Been Permanently Blocked by Too Many Login Attempts</string>
+    <string name="blockAlert">Locked Application</string>
+    <string name="senhaAlert">Incorrect User / Password</string>
+    <string name="tela1">Main</string>
+    <string name="tela2">Settings</string>
+    <string name="usuario">User</string>
+    <string name="senha">Password</string>
+    <string name="btLogin">Sing in</string>
+    <string name="btcancel">Cancel</string>
+    <string name="senhadif">Different passwords, please try again.</string>
+    <string name="btconfig">SETTINGS</string>
+    <string name="btsair">EXIT</string>
+</resources>
